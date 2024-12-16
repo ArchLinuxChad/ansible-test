@@ -16,8 +16,18 @@
 
     - name: clone website
       ansible.builtin.git:
-        repo: 'https://github.com/ArchLinuxChad/dillonking.xyz'
-	dest: /var/www/
+        repo: https://github.com/ArchLinuxChad/dillonking.xyz
+        dest: /var/www/website
+
+    - name: copy index.html to /var/www/html
+      copy:
+        remote_src: yes
+        src: /var/www/website/index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: o=r,g=r,u=rwx
+      
 
 
   
