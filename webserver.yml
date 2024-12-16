@@ -14,5 +14,10 @@
         name: nginx
         state: started
 
+    - name: clone website
+      ansible.builtin.git:
+        repo: 'https://github.com/ArchLinuxChad/dillonking.xyz'
+	dest: /var/www/
+
 
   
