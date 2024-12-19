@@ -27,7 +27,15 @@
         owner: root
         group: root
         mode: o=r,g=r,u=rwx
+
+     - name: install ufw
+       apt:
+         name: ufw
+	 sate: present
+     - name: start ufw
+         service:
+           name: ufw
+           state: started
+     - name: configure ufw
+       cmd: ufw default deny incoming && ufw default allow outgoing && ufw allow 80,443,22/tcp
       
-
-
-  
